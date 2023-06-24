@@ -14,7 +14,8 @@ export class OrdersService {
   create(data: Order) {
     return this.prismaService.order.create({
       data: {
-        ...data,
+        asset_id: data.asset_id,
+        price: data.price,
         status: OrderStatus.PENDING,
       },
     });

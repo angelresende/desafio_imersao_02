@@ -1,16 +1,16 @@
 import { Body, Controller, Post, Get } from '@nestjs/common';
 import { AssetsService } from './assets.service';
 
-@Controller('assets')
+@Controller('api')
 export class AssetsController {
   constructor(private readonly assetsService: AssetsService) {}
 
-  @Get()
+  @Get(`assets`)
   all() {
     return this.assetsService.all();
   }
 
-  @Post()
+  @Post(`assets`)
   create(@Body() body: { id: string; symbol: string }) {
     return this.assetsService.create(body);
   }
